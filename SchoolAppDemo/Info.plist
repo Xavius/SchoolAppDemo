@@ -2,6 +2,21 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Source_Sans_Pro/SourceSansPro-Black.ttf</string>
+		<string>Source_Sans_Pro/SourceSansPro-BlackItalic.ttf</string>
+		<string>Source_Sans_Pro/SourceSansPro-Bold.ttf</string>
+		<string>Source_Sans_Pro/SourceSansPro-BoldItalic.ttf</string>
+		<string>Source_Sans_Pro/SourceSansPro-ExtraLight.ttf</string>
+		<string>Source_Sans_Pro/SourceSansPro-ExtraLightItalic.ttf</string>
+		<string>Source_Sans_Pro/SourceSansPro-Italic.ttf</string>
+		<string>Source_Sans_Pro/SourceSansPro-Light.ttf</string>
+		<string>Source_Sans_Pro/SourceSansPro-LightItalic.ttf</string>
+		<string>Source_Sans_Pro/SourceSansPro-Regular.ttf</string>
+		<string>Source_Sans_Pro/SourceSansPro-SemiBold.ttf</string>
+		<string>Source_Sans_Pro/SourceSansPro-SemiBoldItalic.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -15,8 +30,6 @@
 					<string>Default Configuration</string>
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
-					<key>UISceneStoryboardFile</key>
-					<string>Main</string>
 				</dict>
 			</array>
 		</dict>
