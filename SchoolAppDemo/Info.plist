@@ -4,6 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Bebas_Neue/BebasNeue-Regular.ttf</string>
 		<string>Source_Sans_Pro/SourceSansPro-Black.ttf</string>
 		<string>Source_Sans_Pro/SourceSansPro-BlackItalic.ttf</string>
 		<string>Source_Sans_Pro/SourceSansPro-Bold.ttf</string>

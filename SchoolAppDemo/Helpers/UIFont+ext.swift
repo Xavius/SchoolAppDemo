@@ -51,4 +51,9 @@ extension UIFont {
         let font = UIFont(name: "SourceSansPro-\(fontWeightName)", size: size)
         return font ?? UIFont()
     }
+
+    static func bebasNeue(with size: CGFloat) -> UIFont {
+        let font = UIFont(name: "BebasNeue-Regular", size: size)
+        return font ?? UIFont()
+    }
 }

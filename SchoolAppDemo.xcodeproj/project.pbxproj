@@ -11,10 +11,10 @@
 		228D75C7295BE03100BBEBFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228D75C6295BE03100BBEBFC /* SceneDelegate.swift */; };
 		228D75CE295BE03300BBEBFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 228D75CD295BE03300BBEBFC /* Assets.xcassets */; };
 		228D75D1295BE03300BBEBFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 228D75CF295BE03300BBEBFC /* LaunchScreen.storyboard */; };
-		22E97DE1295DC97C00BD0E15 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E97DE0295DC97C00BD0E15 /* LoginController.swift */; };
-		22E97DE3295DD2E700BD0E15 /* RegisterControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E97DE2295DD2E700BD0E15 /* RegisterControllerViewController.swift */; };
-		22E97DE5295DD30E00BD0E15 /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E97DE4295DD30E00BD0E15 /* ForgotPasswordController.swift */; };
-		22E97DE7295DD32E00BD0E15 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E97DE6295DD32E00BD0E15 /* MainViewController.swift */; };
+		22E97DE1295DC97C00BD0E15 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E97DE0295DC97C00BD0E15 /* LoginViewController.swift */; };
+		22E97DE3295DD2E700BD0E15 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E97DE2295DD2E700BD0E15 /* RegisterViewController.swift */; };
+		22E97DE5295DD30E00BD0E15 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E97DE4295DD30E00BD0E15 /* ForgotPasswordViewController.swift */; };
+		22E97DE7295DD32E00BD0E15 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E97DE6295DD32E00BD0E15 /* HomeViewController.swift */; };
 		22E97DEB295DD43300BD0E15 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E97DEA295DD43300BD0E15 /* LoginView.swift */; };
 		22E97DED295DD4E200BD0E15 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E97DEC295DD4E200BD0E15 /* BaseView.swift */; };
 		22E97DF2295DE3C000BD0E15 /* UIFont+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E97DF1295DE3C000BD0E15 /* UIFont+ext.swift */; };
@@ -26,6 +26,16 @@
 		22E97E23295E5B1800BD0E15 /* UIImage+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E97E22295E5B1800BD0E15 /* UIImage+ext.swift */; };
 		22E97E27295E64F600BD0E15 /* UIButton+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E97E26295E64F600BD0E15 /* UIButton+ext.swift */; };
 		22E97E29295E65FC00BD0E15 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E97E28295E65FC00BD0E15 /* LoginButton.swift */; };
+		22E97E2D2960A54100BD0E15 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E97E2C2960A54100BD0E15 /* HomeView.swift */; };
+		22E97E2F2961B4F000BD0E15 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E97E2E2961B4F000BD0E15 /* PaddingLabel.swift */; };
+		22E97E312961F6E900BD0E15 /* ProfileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E97E302961F6E900BD0E15 /* ProfileButton.swift */; };
+		22E97E342961FF9A00BD0E15 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E97E332961FF9A00BD0E15 /* ProfileViewController.swift */; };
+		22E97E36296201E200BD0E15 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E97E35296201E200BD0E15 /* ProfileView.swift */; };
+		22E97E382962049500BD0E15 /* HomeMenuEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E97E372962049500BD0E15 /* HomeMenuEntryCell.swift */; };
+		22E97E3A29621E6C00BD0E15 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E97E3929621E6C00BD0E15 /* BaseViewController.swift */; };
+		22E97E3C2962300500BD0E15 /* HomeMenuMandatoryEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E97E3B2962300500BD0E15 /* HomeMenuMandatoryEntryCell.swift */; };
+		22E97E3E2962302E00BD0E15 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E97E3D2962302E00BD0E15 /* ReusableView.swift */; };
+		22E97E40296230E500BD0E15 /* Bebas_Neue in Resources */ = {isa = PBXBuildFile; fileRef = 22E97E3F296230E500BD0E15 /* Bebas_Neue */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,10 +45,10 @@
 		228D75CD295BE03300BBEBFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		228D75D0295BE03300BBEBFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		228D75D2295BE03300BBEBFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		22E97DE0295DC97C00BD0E15 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
-		22E97DE2295DD2E700BD0E15 /* RegisterControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterControllerViewController.swift; sourceTree = "<group>"; };
-		22E97DE4295DD30E00BD0E15 /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
-		22E97DE6295DD32E00BD0E15 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		22E97DE0295DC97C00BD0E15 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		22E97DE2295DD2E700BD0E15 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		22E97DE4295DD30E00BD0E15 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		22E97DE6295DD32E00BD0E15 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		22E97DEA295DD43300BD0E15 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		22E97DEC295DD4E200BD0E15 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		22E97DF1295DE3C000BD0E15 /* UIFont+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+ext.swift"; sourceTree = "<group>"; };
@@ -50,6 +60,16 @@
 		22E97E22295E5B1800BD0E15 /* UIImage+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ext.swift"; sourceTree = "<group>"; };
 		22E97E26295E64F600BD0E15 /* UIButton+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+ext.swift"; sourceTree = "<group>"; };
 		22E97E28295E65FC00BD0E15 /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
+		22E97E2C2960A54100BD0E15 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		22E97E2E2961B4F000BD0E15 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		22E97E302961F6E900BD0E15 /* ProfileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButton.swift; sourceTree = "<group>"; };
+		22E97E332961FF9A00BD0E15 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		22E97E35296201E200BD0E15 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		22E97E372962049500BD0E15 /* HomeMenuEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuEntryCell.swift; sourceTree = "<group>"; };
+		22E97E3929621E6C00BD0E15 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		22E97E3B2962300500BD0E15 /* HomeMenuMandatoryEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuMandatoryEntryCell.swift; sourceTree = "<group>"; };
+		22E97E3D2962302E00BD0E15 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		22E97E3F296230E500BD0E15 /* Bebas_Neue */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Bebas_Neue; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,9 +102,10 @@
 		228D75C3295BE03100BBEBFC /* SchoolAppDemo */ = {
 			isa = PBXGroup;
 			children = (
-				22E97DE6295DD32E00BD0E15 /* MainViewController.swift */,
 				22E97DEC295DD4E200BD0E15 /* BaseView.swift */,
+				22E97E3929621E6C00BD0E15 /* BaseViewController.swift */,
 				22E97DF0295DE34D00BD0E15 /* Helpers */,
+				22E97E2A2960A52600BD0E15 /* Dashboard */,
 				22E97DDF295DC95700BD0E15 /* Login */,
 				228D75C4295BE03100BBEBFC /* AppDelegate.swift */,
 				228D75C6295BE03100BBEBFC /* SceneDelegate.swift */,
@@ -92,7 +113,6 @@
 				228D75CF295BE03300BBEBFC /* LaunchScreen.storyboard */,
 				228D75D2295BE03300BBEBFC /* Info.plist */,
 				22E97DF7295DED8200BD0E15 /* Resources */,
-				22E97E1E295DFD4D00BD0E15 /* SATextField.swift */,
 			);
 			path = SchoolAppDemo;
 			sourceTree = "<group>";
@@ -109,9 +129,9 @@
 		22E97DE8295DD40F00BD0E15 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				22E97DE0295DC97C00BD0E15 /* LoginController.swift */,
-				22E97DE2295DD2E700BD0E15 /* RegisterControllerViewController.swift */,
-				22E97DE4295DD30E00BD0E15 /* ForgotPasswordController.swift */,
+				22E97DE0295DC97C00BD0E15 /* LoginViewController.swift */,
+				22E97DE2295DD2E700BD0E15 /* RegisterViewController.swift */,
+				22E97DE4295DD30E00BD0E15 /* ForgotPasswordViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -128,12 +148,15 @@
 		22E97DF0295DE34D00BD0E15 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				22E97E1E295DFD4D00BD0E15 /* SATextField.swift */,
 				22E97DF1295DE3C000BD0E15 /* UIFont+ext.swift */,
 				22E97DF3295DE4C300BD0E15 /* UIColor+ext.swift */,
 				22E97DF5295DE7F600BD0E15 /* UIView+ext.swift */,
 				22E97E20295E09FB00BD0E15 /* UITextField+ext.swift */,
 				22E97E22295E5B1800BD0E15 /* UIImage+ext.swift */,
 				22E97E26295E64F600BD0E15 /* UIButton+ext.swift */,
+				22E97E2E2961B4F000BD0E15 /* PaddingLabel.swift */,
+				22E97E3D2962302E00BD0E15 /* ReusableView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -149,9 +172,40 @@
 		22E97DF8295DED8B00BD0E15 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				22E97E3F296230E500BD0E15 /* Bebas_Neue */,
 				22E97E1C295DF90900BD0E15 /* Source_Sans_Pro */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		22E97E2A2960A52600BD0E15 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				22E97E2B2960A53300BD0E15 /* Views */,
+				22E97E322961FF7B00BD0E15 /* Controllers */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		22E97E2B2960A53300BD0E15 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				22E97E2C2960A54100BD0E15 /* HomeView.swift */,
+				22E97E302961F6E900BD0E15 /* ProfileButton.swift */,
+				22E97E35296201E200BD0E15 /* ProfileView.swift */,
+				22E97E372962049500BD0E15 /* HomeMenuEntryCell.swift */,
+				22E97E3B2962300500BD0E15 /* HomeMenuMandatoryEntryCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		22E97E322961FF7B00BD0E15 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				22E97DE6295DD32E00BD0E15 /* HomeViewController.swift */,
+				22E97E332961FF9A00BD0E15 /* ProfileViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +269,7 @@
 				22E97E1D295DF90900BD0E15 /* Source_Sans_Pro in Resources */,
 				228D75D1295BE03300BBEBFC /* LaunchScreen.storyboard in Resources */,
 				228D75CE295BE03300BBEBFC /* Assets.xcassets in Resources */,
+				22E97E40296230E500BD0E15 /* Bebas_Neue in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,14 +280,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22E97DE7295DD32E00BD0E15 /* MainViewController.swift in Sources */,
+				22E97DE7295DD32E00BD0E15 /* HomeViewController.swift in Sources */,
 				22E97E29295E65FC00BD0E15 /* LoginButton.swift in Sources */,
+				22E97E342961FF9A00BD0E15 /* ProfileViewController.swift in Sources */,
+				22E97E3A29621E6C00BD0E15 /* BaseViewController.swift in Sources */,
 				22E97DEB295DD43300BD0E15 /* LoginView.swift in Sources */,
-				22E97DE1295DC97C00BD0E15 /* LoginController.swift in Sources */,
+				22E97DE1295DC97C00BD0E15 /* LoginViewController.swift in Sources */,
 				22E97E1F295DFD4D00BD0E15 /* SATextField.swift in Sources */,
+				22E97E2D2960A54100BD0E15 /* HomeView.swift in Sources */,
+				22E97E312961F6E900BD0E15 /* ProfileButton.swift in Sources */,
+				22E97E2F2961B4F000BD0E15 /* PaddingLabel.swift in Sources */,
 				22E97E21295E09FB00BD0E15 /* UITextField+ext.swift in Sources */,
-				22E97DE5295DD30E00BD0E15 /* ForgotPasswordController.swift in Sources */,
-				22E97DE3295DD2E700BD0E15 /* RegisterControllerViewController.swift in Sources */,
+				22E97E3E2962302E00BD0E15 /* ReusableView.swift in Sources */,
+				22E97E382962049500BD0E15 /* HomeMenuEntryCell.swift in Sources */,
+				22E97E3C2962300500BD0E15 /* HomeMenuMandatoryEntryCell.swift in Sources */,
+				22E97DE5295DD30E00BD0E15 /* ForgotPasswordViewController.swift in Sources */,
+				22E97DE3295DD2E700BD0E15 /* RegisterViewController.swift in Sources */,
 				22E97E23295E5B1800BD0E15 /* UIImage+ext.swift in Sources */,
 				228D75C5295BE03100BBEBFC /* AppDelegate.swift in Sources */,
 				228D75C7295BE03100BBEBFC /* SceneDelegate.swift in Sources */,
@@ -240,6 +303,7 @@
 				22E97DF2295DE3C000BD0E15 /* UIFont+ext.swift in Sources */,
 				22E97DF6295DE7F600BD0E15 /* UIView+ext.swift in Sources */,
 				22E97DED295DD4E200BD0E15 /* BaseView.swift in Sources */,
+				22E97E36296201E200BD0E15 /* ProfileView.swift in Sources */,
 				22E97DF4295DE4C300BD0E15 /* UIColor+ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -15,10 +15,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let window = UIWindow(windowScene: windowScene)
 
-        let mainViewController = MainViewController()
+        let mainViewController = HomeViewController()
         let navigationController = UINavigationController(rootViewController: mainViewController)
         navigationController.modalPresentationStyle = .fullScreen
-        navigationController.isNavigationBarHidden = true
+        navigationController.navigationBar.tintColor = .white
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
         self.window = window

@@ -1,5 +1,5 @@
 //
-//  LoginController.swift
+//  LoginViewController.swift
 //  SchoolAppDemo
 //
 //  Created by Михаил Шикин on 29.12.2022.
@@ -7,28 +7,28 @@
 
 import UIKit
 
-class LoginController: UIViewController, BaseViewProtocol {
+class LoginViewController: BaseViewController {
+    var isLoggedIn = false
     let loginView: LoginView = {
         let view = LoginView()
         return view
     }()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        setupViews()
-        setupConstraints()
-        configureView()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
     }
 }
 
-extension LoginController {
-    func setupViews() {
+extension LoginViewController {
+    override func setupViews() {
+        super.setupViews()
         view.addView(loginView)
         loginView.setupViews()
     }
 
-    func setupConstraints() {
+    override func setupConstraints() {
+        super.setupConstraints()
         NSLayoutConstraint.activate([
             loginView.topAnchor.constraint(equalTo: view.topAnchor),
             loginView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -38,7 +38,8 @@ extension LoginController {
         loginView.setupConstraints()
     }
 
-    func configureView() {
+    override func configureView() {
+        super.configureView()
         loginView.configureView()
         loginView.addSignInAction(#selector(didTappedLoginButton), with: self)
         loginView.addForgotPasswordAction(#selector(didTappedForgotPasswordButton), with: self)
@@ -46,13 +47,14 @@ extension LoginController {
 }
 
 
-@objc extension LoginController {
+@objc extension LoginViewController {
     func didTappedLoginButton() {
-        print("Sign In Tapped")
+        isLoggedIn = true
+        navigationController?.popToRootViewController(animated: true)
     }
 
     func didTappedForgotPasswordButton() {
-        let forgotPasswordVC = ForgotPasswordController()
+        let forgotPasswordVC = ForgotPasswordViewController()
         forgotPasswordVC.modalPresentationStyle = .fullScreen
         present(forgotPasswordVC, animated: true)
     }

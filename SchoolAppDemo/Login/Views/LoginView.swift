@@ -70,7 +70,6 @@ class LoginView: BaseView {
 extension LoginView {
     override func setupViews() {
         super.setupViews()
-        setBackgroundImage(with: .backgroundSplash)
         addView(contentView)
         addView(titleLabel)
         addView(subTitleLabel)
