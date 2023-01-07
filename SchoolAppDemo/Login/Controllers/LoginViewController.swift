@@ -8,7 +8,6 @@
 import UIKit
 
 class LoginViewController: BaseViewController {
-    var isLoggedIn = false
     let loginView: LoginView = {
         let view = LoginView()
         return view
@@ -49,8 +48,12 @@ extension LoginViewController {
 
 @objc extension LoginViewController {
     func didTappedLoginButton() {
-        isLoggedIn = true
-        navigationController?.popToRootViewController(animated: true)
+        if let authController = authController() {
+            authController.signIn()
+            if authController.isSignedIn {
+                router()?.popScreen(from: self, animated: true)
+            }
+        }
     }
 
     func didTappedForgotPasswordButton() {

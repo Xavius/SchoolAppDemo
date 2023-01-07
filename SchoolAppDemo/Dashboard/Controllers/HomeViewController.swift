@@ -8,8 +8,6 @@
 import UIKit
 
 class HomeViewController: BaseViewController {
-    weak var loginViewController: LoginViewController?
-    weak var profileViewController: ProfileViewController?
     var isLoggedIn: Bool = false
     let homeView = HomeView()
     var menuItems: [MenuItemData] = []
@@ -17,11 +15,8 @@ class HomeViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
         super.viewWillAppear(animated)
-        if let loginVC = loginViewController {
-            isLoggedIn = loginVC.isLoggedIn
-        }
-        if !isLoggedIn {
-            openLoginView()
+        if !(authController()?.isSignedIn ?? false) {
+            router()?.showLogin(from: self, animated: true, navBarTitle: nil)
             return
         }
     }
@@ -58,37 +53,37 @@ extension HomeViewController {
                 // TODO: Open Fees
             },
             MenuItemData(icon: .menuQuiz, title: "Play Quiz") {
-                self.openQuiz()
+                self.router()?.openQuiz(from: self, animated: true, navBarTitle: "Play Quiz")
             },
             MenuItemData(icon: .menuAssignment, title: "Assignment") {
-                self.openAssignment()
+                self.router()?.openAssignment(from: self, animated: true, navBarTitle: "Assignment")
             },
             MenuItemData(icon: .menuHoliday, title: "School Holiday") {
-                self.openHoliday()
+                self.router()?.openHoliday(from: self, animated: true, navBarTitle: "")
             },
             MenuItemData(icon: .menuCalendar, title: "Time Table") {
-                self.openCalendar()
+                self.router()?.openCalendar(from: self, animated: true, navBarTitle: "Timetable")
             },
             MenuItemData(icon: .menuResults, title: "Result") {
-                self.openResults()
+                self.router()?.openResults(from: self, animated: true, navBarTitle: "")
             },
             MenuItemData(icon: .menuDateSheet, title: "Date Sheet") {
-                self.openDateSheet()
+                self.router()?.openDateSheet(from: self, animated: true, navBarTitle: "Datesheet")
             },
             MenuItemData(icon: .menuDoubts, title: "Ask Doubts") {
-                self.openDoubts()
+                self.router()?.openDoubts(from: self, animated: true, navBarTitle: "Ask Doubt")
             },
             MenuItemData(icon: .menuGallery, title: "School Gallery") {
-                self.openGallery()
+                self.router()?.openGallery(from: self, animated: true, navBarTitle: "School Gallery")
             },
             MenuItemData(icon: .menuLeaveApp, title: "Leave Application") {
                 self.leaveApplication()
             },
             MenuItemData(icon: .menuChangePass, title: "Change Password") {
-                self.openChangePassword()
+                self.router()?.openChangePassword(from: self, animated: true, navBarTitle: "Change Password")
             },
             MenuItemData(icon: .menuEvents, title: "Events") {
-                self.openEvents()
+                self.router()?.openEvents(from: self, animated: true, navBarTitle: "Events & Programs")
             },
             MenuItemData(icon: .menuLogout, title: "Logout") {
                 self.logoutApp()
@@ -102,7 +97,7 @@ extension HomeViewController {
 
 @objc extension HomeViewController {
     func didTappedProfileButton() {
-        openProfileView()
+        router()?.showProfile(from: self, animated: true, navBarTitle: "MyProfile")
     }
 }
 
@@ -168,77 +163,13 @@ extension HomeViewController {
         return vc
     }
 
-    func openLoginView() {
-        if let loginVC = loginViewController {
-            navigationController?.pushViewController(loginVC, animated: false)
-        } else {
-            loginViewController = createAndPushController(false) as LoginViewController
-        }
-    }
-
-    func openProfileView() {
-        setupNavBarBackButton(with: "My Profile")
-        if let profileVC = profileViewController {
-            navigationController?.pushViewController(profileVC, animated: true)
-        } else {
-            profileViewController = createAndPushController() as ProfileViewController
-        }
-    }
-
-    func openQuiz() {
-        setupNavBarBackButton(with: "Play Quiz")
-        createAndPushController()
-    }
-
-    func openAssignment() {
-        setupNavBarBackButton(with: "Assignment")
-        createAndPushController()
-    }
-
-    func openHoliday() {
-        setupNavBarBackButton()
-        createAndPushController()
-    }
-
-    func openCalendar() {
-        setupNavBarBackButton(with: "Timetable")
-        createAndPushController()
-    }
-
-    func openResults() {
-        setupNavBarBackButton()
-        createAndPushController()
-    }
-
-    func openDateSheet() {
-        setupNavBarBackButton(with: "Datesheet")
-        createAndPushController()
-    }
-
-    func openDoubts() {
-        setupNavBarBackButton(with: "Ask Doubt")
-        createAndPushController()
-    }
-
-    func openGallery() {
-        setupNavBarBackButton(with: "School Gallery")
-        createAndPushController()
-    }
-
-    func openChangePassword() {
-        setupNavBarBackButton(with: "Change Password")
-        createAndPushController()
-    }
-
-    func openEvents() {
-        setupNavBarBackButton(with: "Events & Programs")
-        createAndPushController()
-    }
-
     func logoutApp() {
         isLoggedIn = false
         homeView.resetScroll()
-        openLoginView()
+        authController()?.signOut()
+        if !(authController()?.isSignedIn ?? false) {
+            router()?.showLogin(from: self, animated: true, navBarTitle: nil)
+        }
     }
 
     func leaveApplication() {

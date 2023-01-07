@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		226CF7D129673943007555F2 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226CF7D029673943007555F2 /* Router.swift */; };
+		226CF7D329673F43007555F2 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226CF7D229673F43007555F2 /* AuthController.swift */; };
+		226CF7D529674E7D007555F2 /* SACollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226CF7D429674E7D007555F2 /* SACollectionView.swift */; };
 		228D75C5295BE03100BBEBFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228D75C4295BE03100BBEBFC /* AppDelegate.swift */; };
 		228D75C7295BE03100BBEBFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228D75C6295BE03100BBEBFC /* SceneDelegate.swift */; };
 		228D75CE295BE03300BBEBFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 228D75CD295BE03300BBEBFC /* Assets.xcassets */; };
@@ -39,6 +42,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		226CF7D029673943007555F2 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		226CF7D229673F43007555F2 /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
+		226CF7D429674E7D007555F2 /* SACollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SACollectionView.swift; sourceTree = "<group>"; };
 		228D75C1295BE03100BBEBFC /* SchoolAppDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchoolAppDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		228D75C4295BE03100BBEBFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		228D75C6295BE03100BBEBFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,8 +108,10 @@
 		228D75C3295BE03100BBEBFC /* SchoolAppDemo */ = {
 			isa = PBXGroup;
 			children = (
+				226CF7D229673F43007555F2 /* AuthController.swift */,
 				22E97DEC295DD4E200BD0E15 /* BaseView.swift */,
 				22E97E3929621E6C00BD0E15 /* BaseViewController.swift */,
+				226CF7D029673943007555F2 /* Router.swift */,
 				22E97DF0295DE34D00BD0E15 /* Helpers */,
 				22E97E2A2960A52600BD0E15 /* Dashboard */,
 				22E97DDF295DC95700BD0E15 /* Login */,
@@ -157,6 +165,7 @@
 				22E97E26295E64F600BD0E15 /* UIButton+ext.swift */,
 				22E97E2E2961B4F000BD0E15 /* PaddingLabel.swift */,
 				22E97E3D2962302E00BD0E15 /* ReusableView.swift */,
+				226CF7D429674E7D007555F2 /* SACollectionView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -280,10 +289,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				226CF7D529674E7D007555F2 /* SACollectionView.swift in Sources */,
 				22E97DE7295DD32E00BD0E15 /* HomeViewController.swift in Sources */,
 				22E97E29295E65FC00BD0E15 /* LoginButton.swift in Sources */,
 				22E97E342961FF9A00BD0E15 /* ProfileViewController.swift in Sources */,
 				22E97E3A29621E6C00BD0E15 /* BaseViewController.swift in Sources */,
+				226CF7D329673F43007555F2 /* AuthController.swift in Sources */,
 				22E97DEB295DD43300BD0E15 /* LoginView.swift in Sources */,
 				22E97DE1295DC97C00BD0E15 /* LoginViewController.swift in Sources */,
 				22E97E1F295DFD4D00BD0E15 /* SATextField.swift in Sources */,
@@ -292,6 +303,7 @@
 				22E97E2F2961B4F000BD0E15 /* PaddingLabel.swift in Sources */,
 				22E97E21295E09FB00BD0E15 /* UITextField+ext.swift in Sources */,
 				22E97E3E2962302E00BD0E15 /* ReusableView.swift in Sources */,
+				226CF7D129673943007555F2 /* Router.swift in Sources */,
 				22E97E382962049500BD0E15 /* HomeMenuEntryCell.swift in Sources */,
 				22E97E3C2962300500BD0E15 /* HomeMenuMandatoryEntryCell.swift in Sources */,
 				22E97DE5295DD30E00BD0E15 /* ForgotPasswordViewController.swift in Sources */,

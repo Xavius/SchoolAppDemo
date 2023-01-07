@@ -7,6 +7,12 @@
 
 import UIKit
 
+//extension UICollectionView {
+//    open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+//        super.hitTest(point, with: event)
+//    }
+//}
+
 class HomeView: BaseView {
     let contentView: UIView = {
         let view = UIView()
@@ -47,9 +53,10 @@ class HomeView: BaseView {
         return button
     }()
 
-    let menuItemsView: UICollectionView = {
+    let menuItemsView: SACollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
-        let view = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
+        let view = SACollectionView(frame: .zero, collectionViewLayout: viewLayout)
+        view.isExclusiveTouch = false
         view.backgroundColor = .clear
         return view
     }()
