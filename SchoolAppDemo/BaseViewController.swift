@@ -31,7 +31,7 @@ class BaseViewController: UIViewController {
     func configureView() {}
 }
 
-extension BaseViewController {
+extension UIViewController {
     func setupNavBarBackButton(with title: String = "") {
         let button = UIBarButtonItem(title: title,
                                      style: .plain,

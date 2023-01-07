@@ -7,7 +7,8 @@
 
 import UIKit
 
-class ForgotPasswordViewController: BaseViewController {
+class ForgotPasswordViewController: BaseViewController, FlowController {
+    var completionHandler: ((String) -> ())?
     let dismissButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Dismiss", for: .normal)

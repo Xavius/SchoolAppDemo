@@ -7,11 +7,18 @@
 
 import UIKit
 
-class LoginViewController: BaseViewController {
+enum LoginAction {
+    case signIn
+    case signUp
+    case forgotPassword
+}
+class LoginViewController: BaseViewController, FlowController {
     let loginView: LoginView = {
         let view = LoginView()
         return view
     }()
+
+    var completionHandler: ((LoginAction?) -> ())?
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -51,14 +58,12 @@ extension LoginViewController {
         if let authController = authController() {
             authController.signIn()
             if authController.isSignedIn {
-                router()?.popScreen(from: self, animated: true)
+                completionHandler?(.signIn)
             }
         }
     }
 
     func didTappedForgotPasswordButton() {
-        let forgotPasswordVC = ForgotPasswordViewController()
-        forgotPasswordVC.modalPresentationStyle = .fullScreen
-        present(forgotPasswordVC, animated: true)
+        completionHandler?(.forgotPassword)
     }
 }

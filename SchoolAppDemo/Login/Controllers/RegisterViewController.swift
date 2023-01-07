@@ -7,6 +7,6 @@
 
 import UIKit
 
-class RegisterViewController: BaseViewController {
-
+class RegisterViewController: BaseViewController, FlowController {
+    var completionHandler: ((String) -> ())?
 }

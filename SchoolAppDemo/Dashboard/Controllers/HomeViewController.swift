@@ -7,18 +7,33 @@
 
 import UIKit
 
-class HomeViewController: BaseViewController {
+enum DashboardAction {
+    case showProfile
+    case showAttendance
+    case showFees
+    case showQuiz
+    case showAssignment
+    case showHoliday
+    case showCalendar
+    case showResults
+    case showDateSheet
+    case showDoubts
+    case showGallery
+    case showChangePass
+    case showEvents
+    case logout
+}
+
+class HomeViewController: BaseViewController, FlowController {
     var isLoggedIn: Bool = false
     let homeView = HomeView()
     var menuItems: [MenuItemData] = []
 
+    var completionHandler: ((DashboardAction?) -> ())?
+
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
         super.viewWillAppear(animated)
-        if !(authController()?.isSignedIn ?? false) {
-            router()?.showLogin(from: self, animated: true, navBarTitle: nil)
-            return
-        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -46,47 +61,47 @@ extension HomeViewController {
     override func configureView() {
         super.configureView()
         menuItems = [
-            MenuItemData(icon: .menuAttendance, title: "80.39%", subTitle: "Attendance") {
-                // TODO: Open Attendance
+            MenuItemData(icon: .menuAttendance, title: "80.39%", subTitle: "Attendance") { [weak self] in
+                self?.completionHandler?(.showAttendance)
             },
-            MenuItemData(icon: .menuFees, title: "₹6400", subTitle: "Fees Due") {
-                // TODO: Open Fees
+            MenuItemData(icon: .menuFees, title: "₹6400", subTitle: "Fees Due") { [weak self] in
+                self?.completionHandler?(.showFees)
             },
-            MenuItemData(icon: .menuQuiz, title: "Play Quiz") {
-                self.router()?.openQuiz(from: self, animated: true, navBarTitle: "Play Quiz")
+            MenuItemData(icon: .menuQuiz, title: "Play Quiz") { [weak self] in
+                self?.completionHandler?(.showQuiz)
             },
-            MenuItemData(icon: .menuAssignment, title: "Assignment") {
-                self.router()?.openAssignment(from: self, animated: true, navBarTitle: "Assignment")
+            MenuItemData(icon: .menuAssignment, title: "Assignment") { [weak self] in
+                self?.completionHandler?(.showAssignment)
             },
-            MenuItemData(icon: .menuHoliday, title: "School Holiday") {
-                self.router()?.openHoliday(from: self, animated: true, navBarTitle: "")
+            MenuItemData(icon: .menuHoliday, title: "School Holiday") { [weak self] in
+                self?.completionHandler?(.showHoliday)
             },
-            MenuItemData(icon: .menuCalendar, title: "Time Table") {
-                self.router()?.openCalendar(from: self, animated: true, navBarTitle: "Timetable")
+            MenuItemData(icon: .menuCalendar, title: "Time Table") { [weak self] in
+                self?.completionHandler?(.showCalendar)
             },
-            MenuItemData(icon: .menuResults, title: "Result") {
-                self.router()?.openResults(from: self, animated: true, navBarTitle: "")
+            MenuItemData(icon: .menuResults, title: "Result") { [weak self] in
+                self?.completionHandler?(.showResults)
             },
-            MenuItemData(icon: .menuDateSheet, title: "Date Sheet") {
-                self.router()?.openDateSheet(from: self, animated: true, navBarTitle: "Datesheet")
+            MenuItemData(icon: .menuDateSheet, title: "Date Sheet") { [weak self] in
+                self?.completionHandler?(.showDateSheet)
             },
-            MenuItemData(icon: .menuDoubts, title: "Ask Doubts") {
-                self.router()?.openDoubts(from: self, animated: true, navBarTitle: "Ask Doubt")
+            MenuItemData(icon: .menuDoubts, title: "Ask Doubts") { [weak self] in
+                self?.completionHandler?(.showDoubts)
             },
-            MenuItemData(icon: .menuGallery, title: "School Gallery") {
-                self.router()?.openGallery(from: self, animated: true, navBarTitle: "School Gallery")
+            MenuItemData(icon: .menuGallery, title: "School Gallery") { [weak self] in
+                self?.completionHandler?(.showGallery)
             },
-            MenuItemData(icon: .menuLeaveApp, title: "Leave Application") {
-                self.leaveApplication()
+            MenuItemData(icon: .menuLeaveApp, title: "Leave Application") { [weak self] in
+                self?.leaveApplication()
             },
-            MenuItemData(icon: .menuChangePass, title: "Change Password") {
-                self.router()?.openChangePassword(from: self, animated: true, navBarTitle: "Change Password")
+            MenuItemData(icon: .menuChangePass, title: "Change Password") { [weak self] in
+                self?.completionHandler?(.showChangePass)
             },
-            MenuItemData(icon: .menuEvents, title: "Events") {
-                self.router()?.openEvents(from: self, animated: true, navBarTitle: "Events & Programs")
+            MenuItemData(icon: .menuEvents, title: "Events") { [weak self] in
+                self?.completionHandler?(.showEvents)
             },
-            MenuItemData(icon: .menuLogout, title: "Logout") {
-                self.logoutApp()
+            MenuItemData(icon: .menuLogout, title: "Logout") { [weak self] in
+                self?.completionHandler?(.logout)
             },
         ]
         homeView.setupMenuItems(with: self, and: self)
@@ -97,7 +112,7 @@ extension HomeViewController {
 
 @objc extension HomeViewController {
     func didTappedProfileButton() {
-        router()?.showProfile(from: self, animated: true, navBarTitle: "MyProfile")
+        self.completionHandler?(.showProfile)
     }
 }
 
@@ -161,15 +176,6 @@ extension HomeViewController {
         vc.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(vc, animated: animated)
         return vc
-    }
-
-    func logoutApp() {
-        isLoggedIn = false
-        homeView.resetScroll()
-        authController()?.signOut()
-        if !(authController()?.isSignedIn ?? false) {
-            router()?.showLogin(from: self, animated: true, navBarTitle: nil)
-        }
     }
 
     func leaveApplication() {
