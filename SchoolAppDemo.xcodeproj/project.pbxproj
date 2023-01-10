@@ -18,6 +18,9 @@
 		226CF7E829690927007555F2 /* DashboardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226CF7E729690927007555F2 /* DashboardFactory.swift */; };
 		226CF7EA29691786007555F2 /* AttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226CF7E929691786007555F2 /* AttendanceViewController.swift */; };
 		226CF7EC2969183A007555F2 /* FeesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226CF7EB2969183A007555F2 /* FeesViewController.swift */; };
+		226CF7EE296C5238007555F2 /* SANavBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226CF7ED296C5238007555F2 /* SANavBarButton.swift */; };
+		226CF7F0296C6990007555F2 /* SAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226CF7EF296C6990007555F2 /* SAButton.swift */; };
+		226CF7F2296C7ADC007555F2 /* ProfilePanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226CF7F1296C7ADC007555F2 /* ProfilePanelView.swift */; };
 		228D75C5295BE03100BBEBFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228D75C4295BE03100BBEBFC /* AppDelegate.swift */; };
 		228D75C7295BE03100BBEBFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228D75C6295BE03100BBEBFC /* SceneDelegate.swift */; };
 		228D75CE295BE03300BBEBFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 228D75CD295BE03300BBEBFC /* Assets.xcassets */; };
@@ -61,6 +64,9 @@
 		226CF7E729690927007555F2 /* DashboardFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardFactory.swift; sourceTree = "<group>"; };
 		226CF7E929691786007555F2 /* AttendanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceViewController.swift; sourceTree = "<group>"; };
 		226CF7EB2969183A007555F2 /* FeesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeesViewController.swift; sourceTree = "<group>"; };
+		226CF7ED296C5238007555F2 /* SANavBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SANavBarButton.swift; sourceTree = "<group>"; };
+		226CF7EF296C6990007555F2 /* SAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAButton.swift; sourceTree = "<group>"; };
+		226CF7F1296C7ADC007555F2 /* ProfilePanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePanelView.swift; sourceTree = "<group>"; };
 		228D75C1295BE03100BBEBFC /* SchoolAppDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchoolAppDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		228D75C4295BE03100BBEBFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		228D75C6295BE03100BBEBFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,8 +123,8 @@
 		226CF7D92968FD0C007555F2 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				226CF7E2296905CC007555F2 /* Dashboard */,
 				226CF7D62968FC3A007555F2 /* Base */,
+				226CF7E2296905CC007555F2 /* Dashboard */,
 				226CF7DC2968FE46007555F2 /* Login */,
 				226CF7E3296905EB007555F2 /* AppCoordinator.swift */,
 			);
@@ -220,6 +226,7 @@
 				22E97E2E2961B4F000BD0E15 /* PaddingLabel.swift */,
 				22E97E3D2962302E00BD0E15 /* ReusableView.swift */,
 				226CF7D429674E7D007555F2 /* SACollectionView.swift */,
+				226CF7EF296C6990007555F2 /* SAButton.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -256,8 +263,10 @@
 				22E97E2C2960A54100BD0E15 /* HomeView.swift */,
 				22E97E302961F6E900BD0E15 /* ProfileButton.swift */,
 				22E97E35296201E200BD0E15 /* ProfileView.swift */,
+				226CF7F1296C7ADC007555F2 /* ProfilePanelView.swift */,
 				22E97E372962049500BD0E15 /* HomeMenuEntryCell.swift */,
 				22E97E3B2962300500BD0E15 /* HomeMenuMandatoryEntryCell.swift */,
+				226CF7ED296C5238007555F2 /* SANavBarButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -361,6 +370,7 @@
 				22E97E312961F6E900BD0E15 /* ProfileButton.swift in Sources */,
 				226CF7E12968FF40007555F2 /* FlowController.swift in Sources */,
 				22E97E2F2961B4F000BD0E15 /* PaddingLabel.swift in Sources */,
+				226CF7EE296C5238007555F2 /* SANavBarButton.swift in Sources */,
 				226CF7EA29691786007555F2 /* AttendanceViewController.swift in Sources */,
 				22E97E21295E09FB00BD0E15 /* UITextField+ext.swift in Sources */,
 				22E97E3E2962302E00BD0E15 /* ReusableView.swift in Sources */,
@@ -375,10 +385,12 @@
 				228D75C5295BE03100BBEBFC /* AppDelegate.swift in Sources */,
 				228D75C7295BE03100BBEBFC /* SceneDelegate.swift in Sources */,
 				226CF7DB2968FD30007555F2 /* LoginCoordinator.swift in Sources */,
+				226CF7F2296C7ADC007555F2 /* ProfilePanelView.swift in Sources */,
 				22E97E27295E64F600BD0E15 /* UIButton+ext.swift in Sources */,
 				22E97DF2295DE3C000BD0E15 /* UIFont+ext.swift in Sources */,
 				22E97DF6295DE7F600BD0E15 /* UIView+ext.swift in Sources */,
 				22E97DED295DD4E200BD0E15 /* BaseView.swift in Sources */,
+				226CF7F0296C6990007555F2 /* SAButton.swift in Sources */,
 				22E97E36296201E200BD0E15 /* ProfileView.swift in Sources */,
 				22E97DF4295DE4C300BD0E15 /* UIColor+ext.swift in Sources */,
 			);

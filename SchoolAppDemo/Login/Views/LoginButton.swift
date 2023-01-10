@@ -7,17 +7,7 @@
 
 import UIKit
 
-class LoginButton: UIButton {
-    override var isHighlighted: Bool {
-        didSet {
-            UIView.animate(withDuration: 0.1,
-                           delay: 0,
-                           options: [.beginFromCurrentState, .allowUserInteraction]) {
-                self.alpha = self.isHighlighted ? 0.5 : 1
-            }
-        }
-    }
-
+class LoginButton: SAButton {
     let arrow: UIImageView = {
         let imageView = UIImageView(image: UIImage(systemName: "arrow.right")?.withRenderingMode(.alwaysTemplate))
         imageView.contentMode = .scaleAspectFill

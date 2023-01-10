@@ -45,6 +45,10 @@ class DashboardCoordinator: Coordinator {
 
     private func showProfile() {
         let profileVC = DashboardFactory.createProfileController()
+        // For now we don't care about action
+        profileVC.completionHandler = { [weak self] _ in
+            self?.navigationController.popViewController(animated: true)
+        }
         showViewController(profileVC, with: "My Profile")
     }
 

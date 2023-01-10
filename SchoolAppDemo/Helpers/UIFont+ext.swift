@@ -29,6 +29,8 @@ extension UIFont {
                 fontWeightName = "Black"
             case .blackItalic:
                 fontWeightName = "BlackItalic"
+            case .bold:
+                fontWeightName = "Bold"
             case .boldItalic:
                 fontWeightName = "BoldItalic"
             case .extraLight:

@@ -23,4 +23,8 @@ extension UIColor {
     static var saTextField: UIColor {
         #colorLiteral(red: 0.1878406405, green: 0.2117761374, blue: 0.2632688582, alpha: 1)
     }
+
+    static var saTextBlue: UIColor {
+        #colorLiteral(red: 0.3650192022, green: 0.5330939889, blue: 0.8135755062, alpha: 1)
+    }
 }
