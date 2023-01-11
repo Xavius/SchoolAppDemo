@@ -32,7 +32,17 @@ class SANavBarButton: SAButton {
         addView(buttonTitle)
         backgroundColor = .white
         layer.cornerRadius = 15
-        layer.masksToBounds = true
+
+        heightAnchor.constraint(equalToConstant: 30).isActive = true
+
+        buttonTitle.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -1).isActive = true
+        buttonTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
+
+        checkMark.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        checkMark.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12.52).isActive = true
+        checkMark.trailingAnchor.constraint(equalTo: buttonTitle.leadingAnchor, constant: -7.29).isActive = true
+        checkMark.widthAnchor.constraint(equalTo: checkMark.heightAnchor, multiplier: 1.7).isActive = true
+        checkMark.heightAnchor.constraint(equalToConstant: 12).isActive = true
     }
 
     required init?(coder: NSCoder) {
@@ -43,21 +53,4 @@ class SANavBarButton: SAButton {
         buttonTitle.text = name.uppercased()
         self.addTarget(target, action: action, for: .touchUpInside)
     }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        NSLayoutConstraint.activate([
-            heightAnchor.constraint(equalToConstant: 30),
-
-            buttonTitle.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -1),
-            buttonTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-
-            checkMark.centerYAnchor.constraint(equalTo: centerYAnchor),
-            checkMark.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12.52),
-            checkMark.trailingAnchor.constraint(equalTo: buttonTitle.leadingAnchor, constant: -7.29),
-            checkMark.widthAnchor.constraint(equalTo: checkMark.heightAnchor, multiplier: 1.7),
-            checkMark.heightAnchor.constraint(equalToConstant: 12),
-        ])
-    }
-
 }

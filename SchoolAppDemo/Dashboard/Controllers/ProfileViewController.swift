@@ -36,7 +36,6 @@ extension ProfileViewController {
         view.addView(profileView)
         profileView.setupViews()
 
-        view.addView(doneButton)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: doneButton)
     }
     override func setupConstraints() {
