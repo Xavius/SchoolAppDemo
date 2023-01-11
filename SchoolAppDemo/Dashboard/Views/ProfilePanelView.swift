@@ -7,6 +7,13 @@
 
 import UIKit
 
+struct ProfilePanelViewData {
+    var profileIcon: UIImage?
+    var userName: String
+    var studentClass: String
+    var studentRoll: String
+}
+
 class ProfilePanelView: BaseView {
     let profileImage: UIImageView = {
         let imageView = UIImageView()
@@ -41,20 +48,16 @@ class ProfilePanelView: BaseView {
         return label
     }()
 
-    func setup(with name: String, and image: UIImage?, and classRoll: String) {
-        setProfileImage(image: image)
-        userName.text = name
-        studentClassAndRoll.text = classRoll
+    func setup(with data: ProfilePanelViewData) {
+        if let image = data.profileIcon {
+            profileImage.image = image
+        }
+        userName.text = data.userName
+        studentClassAndRoll.text = "Class \(data.studentClass) | Roll no: \(data.studentRoll)"
     }
 
     func setChoseImageTarget(action: Selector, target: Any?) {
         choseImageButton.addTarget(target, action: action, for: .touchUpInside)
-    }
-
-    func setProfileImage(image: UIImage?) {
-        if let image = image {
-            profileImage.image = image
-        }
     }
 }
 

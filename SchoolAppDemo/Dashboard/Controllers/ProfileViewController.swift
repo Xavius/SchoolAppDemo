@@ -8,12 +8,13 @@
 import UIKit
 
 enum ProfileAction {
-    case commitChanges
+    case commitChanges(data: ProfileViewData?)
 }
 
 class ProfileViewController: BaseViewController, FlowController {
 
     let profileView = ProfileView()
+    var profileViewData: ProfileViewData?
 
     let doneButton: SANavBarButton = {
         let button = SANavBarButton()
@@ -50,7 +51,22 @@ extension ProfileViewController {
     }
     override func configureView() {
         super.configureView()
+        profileViewData = ProfileViewData(profileIcon: nil,
+                                          userName: "Akshay Syal",
+                                          studentClass: "XI-B",
+                                          studentRoll: "04",
+                                          aadharNo: "1234 4325 4567 1234",
+                                          academicYear: "2020-2021",
+                                          admissionClass: "VI",
+                                          oldAdmissionNo: "T00221",
+                                          dateOfAdmission: "01 Apr 2018",
+                                          dateOfBirth: "22 July 1996",
+                                          parentEmail: "parentboth84@gmail.com",
+                                          motherName: "Monica Larson",
+                                          fatherName: "Bernard Taylor",
+                                          permanentAddress: "Karol Bagh, Delhi")
         profileView.configureView()
+        profileView.setup(with: profileViewData)
         profileView.setChoseImageTarget(action: #selector(didTappedPickImageButton), target: self)
         doneButton.setup(name: "Done", action: #selector(didTappedDoneButton), target: self)
     }
@@ -59,7 +75,7 @@ extension ProfileViewController {
 @objc extension ProfileViewController {
     func didTappedDoneButton() {
         if verifyFields() {
-            self.completionHandler?(.commitChanges)
+            self.completionHandler?(.commitChanges(data: profileViewData))
         } else {
             print("Fields validation error!")
         }
@@ -79,7 +95,9 @@ extension ProfileViewController {
     }
 
     func didSelectProfileImage(image: UIImage?) {
-        profileView.setProfileImage(image: image)
+        guard let image = image else { return }
+        profileViewData?.profileIcon = image
+        profileView.setup(with: profileViewData)
     }
 }
 

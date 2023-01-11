@@ -10,6 +10,7 @@ import UIKit
 class SATextField: UIView {
     enum InputType {
         case text
+        case readonly
         case email
         case phone
         case password
@@ -58,6 +59,9 @@ class SATextField: UIView {
                 textField.spellCheckingType = .no
                 textField.isSecureTextEntry = true
                 textField.enableEyeIcon()
+            case .readonly:
+                textField.isUserInteractionEnabled = false
+                textField.enableLockIcon()
             default:
                 break
         }

@@ -13,6 +13,25 @@ extension UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
     }
 
+    func embedIntoStack(_ views: [UIView],
+                        spacing: CGFloat = 0,
+                        distribution: UIStackView.Distribution = .fill,
+                        stackAxis: NSLayoutConstraint.Axis = .horizontal) {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = stackAxis
+        stackView.spacing = spacing
+        stackView.distribution = distribution
+        for view in views {
+            stackView.addArrangedSubview(view)
+        }
+        if let view = self as? UIStackView {
+            view.addArrangedSubview(stackView)
+        } else {
+            addView(stackView)
+        }
+    }
+
     func setBackgroundImage(with image: UIImage?) {
         let bgrImageTag = -10
         let backgroundImage = self.subviews.first { $0.tag == bgrImageTag }
