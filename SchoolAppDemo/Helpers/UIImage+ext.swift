@@ -16,6 +16,10 @@ extension UIImage {
         UIImage(named: "login_image")
     }
 
+    static var attendanceDecor: UIImage? {
+        UIImage(named: "attendance_decor")
+    }
+
     static var menuQuiz: UIImage? {
         UIImage(named: "ic_quiz")?.withRenderingMode(.alwaysTemplate)
     }

@@ -18,8 +18,12 @@ enum DashboardFactory {
         vc.modalPresentationStyle = .fullScreen
         return vc
     }
-    static func createAttendanceController() -> AttendanceViewController {
-        let vc = AttendanceViewController()
+    static func createAttendanceAndHolidaysController(withCurrentIndex index: Int) -> SAPageViewController {
+        let vc = SAPageViewController()
+        vc.setup(withControllers: [
+            AttendanceViewController(),
+            HolidayViewController(),
+        ], currentIndex: index)
         vc.modalPresentationStyle = .fullScreen
         return vc
     }

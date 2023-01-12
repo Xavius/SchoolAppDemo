@@ -35,6 +35,8 @@ class DashboardCoordinator: Coordinator {
                     self?.showProfile()
                 case .showAttendance:
                     self?.showAttendance()
+                case .showHoliday:
+                    self?.showHoliday()
                 case .showFees:
                     self?.showFees()
                 default: break
@@ -53,8 +55,13 @@ class DashboardCoordinator: Coordinator {
     }
 
     private func showAttendance() {
-        let attendanceVC = DashboardFactory.createAttendanceController()
-        showViewController(attendanceVC, with: "")
+        let attendanceHolidaysVC = DashboardFactory.createAttendanceAndHolidaysController(withCurrentIndex: 0)
+        showViewController(attendanceHolidaysVC, with: "")
+    }
+
+    private func showHoliday() {
+        let attendanceHolidaysVC = DashboardFactory.createAttendanceAndHolidaysController(withCurrentIndex: 1)
+        showViewController(attendanceHolidaysVC, with: "")
     }
 
     private func showFees() {

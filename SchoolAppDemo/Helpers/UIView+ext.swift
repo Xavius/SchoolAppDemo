@@ -32,7 +32,7 @@ extension UIView {
         }
     }
 
-    func setBackgroundImage(with image: UIImage?) {
+    func setBackgroundImage(with image: UIImage?, moveToBack: Bool = true) {
         let bgrImageTag = -10
         let backgroundImage = self.subviews.first { $0.tag == bgrImageTag }
         if let backgroundImage = backgroundImage as? UIImageView {
@@ -42,6 +42,9 @@ extension UIView {
             imageView.image = image
             imageView.tag = bgrImageTag
             self.addView(imageView)
+            if moveToBack {
+                self.sendSubviewToBack(imageView)
+            }
             imageView.translatesAutoresizingMaskIntoConstraints = false
 
             NSLayoutConstraint.activate([
