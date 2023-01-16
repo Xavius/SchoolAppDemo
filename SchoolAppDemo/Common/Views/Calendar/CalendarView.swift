@@ -7,14 +7,27 @@
 
 import UIKit
 
+protocol CalendarViewDelegate {
+    func activeMonthChanged(month: Date?, direction: MonthChangeDirection)
+}
+
+enum MonthChangeDirection {
+    case initial
+    case toPrevious
+    case toNext
+}
+
 class CalendarView: BaseView {
     // MARK: - Properties
+    var delegate: CalendarViewDelegate?
+    private var monthChangeDirection: MonthChangeDirection = .initial
     private let calendarHelper = CalendarHelper()
     private var activeMonthDate: Date? {
         didSet {
             if let date = activeMonthDate {
                 monthYearLabel.text = "\(calendarHelper.monthString(date: date).uppercased()) \(calendarHelper.yearString(date: date))"
                 monthView.setup(from: date)
+                self.delegate?.activeMonthChanged(month: date, direction: monthChangeDirection)
             }
         }
     }
@@ -44,8 +57,8 @@ class CalendarView: BaseView {
     }()
 
     // MARK: - Public Methods
-    func setup(with date: Date?, and attendanceData: [Date: AttendanceData]) {
-        self.monthView.initialSetup(from: date, with: attendanceData)
+    func setup(with date: Date?, and daysData: [Date: DayCellType]) {
+        self.monthView.initialSetup(from: date, with: daysData)
         self.activeMonthDate = date
     }
 }
@@ -90,10 +103,12 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
 // MARK: - Button Events
 @objc extension CalendarView {
     func switchPrevMonth() {
+        monthChangeDirection = .toPrevious
         activeMonthDate = calendarHelper.prevMonth(from: activeMonthDate)
     }
 
     func switchNextMonth() {
+        monthChangeDirection = .toNext
         activeMonthDate = calendarHelper.nextMonth(from: activeMonthDate)
     }
 }

@@ -8,6 +8,7 @@
 import UIKit
 
 class SAPageViewController: UIPageViewController {
+    // MARK: - Properties
     private var controllers: [BaseViewController] = []
     private lazy var segmentedControlTitles: [String] = {
         self.controllers.map { $0.title ?? String(describing: $0) }
@@ -17,23 +18,21 @@ class SAPageViewController: UIPageViewController {
                                          andSelectedIndex: self.currentPageIndex)
         return control
     }()
-
-    let contentView: UIView = {
+    private let contentView: UIView = {
         let contentView = UIView()
         contentView.layer.cornerRadius = 29
         contentView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         contentView.backgroundColor = .white
         return contentView
     }()
-
-    let decorView: UIImageView = {
+    private let decorView: UIImageView = {
         let imageView = UIImageView(image: .attendanceDecor)
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
-
     private var currentPageIndex: Int = 0
 
+    // MARK: - Initializers
     init() {
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal)
     }
@@ -42,9 +41,9 @@ class SAPageViewController: UIPageViewController {
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal)
     }
 
+    // MARK: - Public Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupViews()
         setupConstraints()
     }
@@ -66,13 +65,13 @@ class SAPageViewController: UIPageViewController {
     func setup(withControllers controllers: [BaseViewController], currentIndex index: Int) {
         self.controllers = controllers
         self.currentPageIndex = index
-        self.delegate = self
         setViewControllers([self.controllers[currentPageIndex]],
                            direction: .forward,
                            animated: true)
     }
 }
 
+// MARK: - BaseViewProtocol
 @objc extension SAPageViewController: BaseViewProtocol {
     func setupViews() {
         view.addView(decorView)
@@ -81,6 +80,7 @@ class SAPageViewController: UIPageViewController {
         view.sendSubviewToBack(contentView)
         view.setBackgroundImage(with: .backgroundSplash)
     }
+
     func setupConstraints() {
         NSLayoutConstraint.activate([
             contentView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 33),
@@ -93,20 +93,19 @@ class SAPageViewController: UIPageViewController {
             decorView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
     }
+
     func configureView() {}
 }
 
-extension SAPageViewController: UIPageViewControllerDelegate {
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        self.currentPageIndex = segmentedControl.selectedIndex
-    }
-}
-
+// MARK: - Button Events
 @objc extension SAPageViewController {
     func didSwitchController() {
         let newPageIndex = segmentedControl.selectedIndex
         setViewControllers([self.controllers[newPageIndex]],
                            direction: newPageIndex > currentPageIndex ? .forward : .reverse,
-                           animated: true)
+                           animated: true) { [weak self] _ in
+            guard let self = self else { return }
+            self.currentPageIndex = self.segmentedControl.selectedIndex
+        }
     }
 }

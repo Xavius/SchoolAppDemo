@@ -7,19 +7,11 @@
 
 import UIKit
 
-enum DayViewCellType {
-    case normal
-    case weekend
-    case holiday
-    case absence
-}
-
 class DayViewCell: UICollectionViewCell {
     // MARK: - Properties
     static let identifier: String = {
         return String(describing: DayViewCell.self)
     }()
-
     private let dayTypeBackground: UIView = {
         let view = UIView()
         return view
@@ -48,7 +40,7 @@ class DayViewCell: UICollectionViewCell {
     }
 
     // MARK: - Public Methods
-    func setup(with date: Date?, isCurrentMonth: Bool, cellType: DayViewCellType) {
+    func setup(with date: Date?, isCurrentMonth: Bool, cellType: DayCellType) {
         if let date = date {
             label.text = "\(Calendar.current.component(.day, from: date))"
             label.alpha = isCurrentMonth ? 1 : 0.5

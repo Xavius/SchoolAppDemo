@@ -8,12 +8,24 @@
 import UIKit
 
 class HolidayViewController: BaseViewController {
-    let testLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Hello from Holiday!"
-        return label
+    // MARK: - Properties
+    private let calendarHelper = CalendarHelper()
+    private lazy var holidaysData: [HolidayInfo] = {
+        [
+            .init(date: calendarHelper.makeDate(year: 2018, month: 11, day: 14),
+                  title: "Diwali"),
+            .init(date: calendarHelper.makeDate(year: 2018, month: 11, day: 15),
+                  title: "Govardhan Puja"),
+            .init(date: calendarHelper.makeDate(year: 2018, month: 11, day: 16),
+                  title: "Bhaiya Dooj"),
+        ]
+    }()
+    let holidayView: HolidayView = {
+        let view = HolidayView()
+        return view
     }()
 
+    // MARK: - Initializers
     init() {
         super.init(nibName: nil, bundle: nil)
         self.title = "Holiday"
@@ -25,16 +37,25 @@ class HolidayViewController: BaseViewController {
     }
 }
 
+// MARK: - BaseViewProtocol
 extension HolidayViewController {
     override func setupViews() {
-        view.addView(testLabel)
+        view.addView(holidayView)
     }
 
     override func setupConstraints() {
         super.setupConstraints()
         NSLayoutConstraint.activate([
-            testLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
-            testLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            holidayView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 33),
+            holidayView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            holidayView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            holidayView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
+    }
+
+    override func configureView() {
+        super.configureView()
+        holidayView.setup(withDate: calendarHelper.makeDate(year: 2018, month: 11, day: 1),
+                          holidaysData: holidaysData)
     }
 }

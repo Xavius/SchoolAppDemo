@@ -9,6 +9,20 @@ import UIKit
 
 class AttendanceViewController: BaseViewController {
     // MARK: - Properties
+    private let calendarHelper = CalendarHelper()
+    private lazy var attendanceData: [Date: DayCellType] = {
+        [
+            calendarHelper.makeDate(year: 2018, month: 12, day: 14): .absence,
+            calendarHelper.makeDate(year: 2018, month: 12, day: 19): .holiday,
+            calendarHelper.makeDate(year: 2018, month: 12, day: 6): .absence,
+            calendarHelper.makeDate(year: 2018, month: 11, day: 8): .absence,
+            calendarHelper.makeDate(year: 2018, month: 11, day: 20): .holiday,
+            calendarHelper.makeDate(year: 2018, month: 11, day: 23): .absence,
+            calendarHelper.makeDate(year: 2018, month: 10, day: 5): .absence,
+            calendarHelper.makeDate(year: 2018, month: 10, day: 12): .holiday,
+            calendarHelper.makeDate(year: 2018, month: 10, day: 18): .absence,
+        ]
+    }()
     let attendanceView: AttendanceView = {
         let view = AttendanceView()
         return view
@@ -44,5 +58,7 @@ extension AttendanceViewController {
 
     override func configureView() {
         super.configureView()
+        attendanceView.setup(withDate: calendarHelper.makeDate(year: 2018, month: 11, day: 1),
+                             attendanceData: attendanceData)
     }
 }

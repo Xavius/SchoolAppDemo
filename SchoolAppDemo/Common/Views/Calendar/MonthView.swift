@@ -12,48 +12,14 @@ struct DayInfo {
     let isCurrentMonth: Bool
 }
 
-struct AttendanceData {
-    let isAbsent: Bool
-    let isHoliday: Bool
-}
-
 class MonthView: BaseView {
     // MARK: - Properties
     private let calendarHelper = CalendarHelper()
-    private var attendanceData: [Date: AttendanceData] = [:]
+    private var dayTypes: [Date: DayCellType] = [:]
     private var totalDays: [DayInfo] = []
     private var initialDate: Date? {
         didSet {
-            if let date = initialDate {
-                totalDays.removeAll()
-                let daysInMonth = calendarHelper.daysInMonth(date: date)
-                let firstDayOfMonth = calendarHelper.firstOfMonth(date: date)
-                let startingSpaces = calendarHelper.weekDay(date: firstDayOfMonth)
-                let prevMonth = calendarHelper.prevMonth(from: date) ?? date
-                let daysInPrevMonth = calendarHelper.daysInMonth(date: prevMonth)
-                let nextMonth = calendarHelper.nextMonth(from: date) ?? date
-                var count = 1
-                while (count <= 42) {
-                    var day: Date?
-                    var isCurrentMonth = true
-                    if count <= startingSpaces {
-                        day = calendarHelper.dayInMonth(month: prevMonth,
-                                                        day: daysInPrevMonth - startingSpaces + count)
-                        isCurrentMonth = false
-                    } else if count - startingSpaces > daysInMonth {
-                        day = calendarHelper.dayInMonth(month: nextMonth,
-                                                        day: count - startingSpaces - daysInMonth)
-                        isCurrentMonth = false
-                    } else {
-                        day = calendarHelper.dayInMonth(month: firstDayOfMonth,
-                                                        day: count - startingSpaces)
-                    }
-                    totalDays.append(DayInfo(date: day, isCurrentMonth: isCurrentMonth))
-
-                    count += 1
-                }
-                daysTable.reloadData()
-            }
+            self.switchMonth()
         }
     }
     private lazy var tableHeader: UIStackView = {
@@ -74,6 +40,7 @@ class MonthView: BaseView {
     private let daysTable: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        view.backgroundColor = .clear
         return view
     }()
 
@@ -82,15 +49,49 @@ class MonthView: BaseView {
         self.initialDate = date
     }
 
-    func initialSetup(from date: Date?, with attendanceData: [Date: AttendanceData]) {
+    func initialSetup(from date: Date?, with dayTypes: [Date: DayCellType]) {
         self.initialDate = date
-        self.attendanceData = attendanceData
+        self.dayTypes = dayTypes
     }
 
     // MARK: - Private Methods
     private func shortWeekDay(by index: Int) -> String {
         let weekDayIndex = (calendarHelper.calendar.firstWeekday - 1) + (index - 1)
         return calendarHelper.calendar.shortStandaloneWeekdaySymbols[weekDayIndex % 7]
+    }
+
+    private func switchMonth() {
+        guard let date = initialDate else { return }
+        totalDays.removeAll()
+        let daysInMonth = calendarHelper.daysInMonth(date: date)
+        let firstDayOfMonth = calendarHelper.firstOfMonth(date: date)
+        let startingSpaces = calendarHelper.weekDay(date: firstDayOfMonth)
+        let prevMonth = calendarHelper.prevMonth(from: date) ?? date
+        let daysInPrevMonth = calendarHelper.daysInMonth(date: prevMonth)
+        let nextMonth = calendarHelper.nextMonth(from: date) ?? date
+        var count = 1
+        while (count <= 42) {
+            var day: Date?
+            var isCurrentMonth = true
+            if count <= startingSpaces {
+                day = calendarHelper.dayInMonth(month: prevMonth,
+                                                day: daysInPrevMonth - startingSpaces + count)
+                isCurrentMonth = false
+            } else if count - startingSpaces > daysInMonth {
+                day = calendarHelper.dayInMonth(month: nextMonth,
+                                                day: count - startingSpaces - daysInMonth)
+                isCurrentMonth = false
+            } else {
+                day = calendarHelper.dayInMonth(month: firstDayOfMonth,
+                                                day: count - startingSpaces)
+            }
+            totalDays.append(DayInfo(date: day, isCurrentMonth: isCurrentMonth))
+
+            count += 1
+        }
+        daysTable.performBatchUpdates {
+            self.daysTable.reloadSections(IndexSet(integer: 0))
+        }
     }
 }
 
@@ -137,20 +138,16 @@ extension MonthView: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayViewCell.identifier,
                                                       for: indexPath) as! DayViewCell
         let dayInfo = totalDays[indexPath.item]
-        var cellType: DayViewCellType = .normal
+        var cellType: DayCellType = .normal
         if calendarHelper.isWeekend(date: dayInfo.date) {
             cellType = .weekend
         } else if dayInfo.isCurrentMonth {
             if let date = dayInfo.date {
-                let dayData = attendanceData.first { (key: Date, _: AttendanceData) in
+                let dayData = dayTypes.first { (key: Date, _: DayCellType) in
                     return calendarHelper.isSameDate(date1: date, date2: key)
                 }?.value
                 if let dayData = dayData {
-                    if dayData.isHoliday {
-                        cellType = .holiday
-                    } else if dayData.isAbsent {
-                        cellType = .absence
-                    }
+                    cellType = dayData
                 }
             }
         }
