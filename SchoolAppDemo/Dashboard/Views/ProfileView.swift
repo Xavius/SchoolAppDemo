@@ -138,12 +138,12 @@ class ProfileView: BaseView {
     }
 }
 
+// MARK: - BaseViewProtocol
 extension ProfileView {
     override func setupViews() {
         super.setupViews()
         addView(contentView)
         addView(profilePanel)
-        profilePanel.setupViews()
         addView(scrollView)
         scrollView.addView(stackView)
         stackView.embedIntoStack([aadharNo, academicYear], spacing: 20, distribution: .fillEqually)
@@ -157,7 +157,6 @@ extension ProfileView {
 
     override func setupConstraints() {
         super.setupConstraints()
-        profilePanel.setupConstraints()
         NSLayoutConstraint.activate([
             contentView.topAnchor.constraint(equalTo: topAnchor),
             contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -184,6 +183,5 @@ extension ProfileView {
 
     override func configureView() {
         super.configureView()
-        profilePanel.configureView()
     }
 }

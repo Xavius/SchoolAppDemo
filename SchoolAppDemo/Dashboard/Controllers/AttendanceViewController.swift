@@ -8,12 +8,13 @@
 import UIKit
 
 class AttendanceViewController: BaseViewController {
-    let testLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Hello from Attendance!"
-        return label
+    // MARK: - Properties
+    let attendanceView: AttendanceView = {
+        let view = AttendanceView()
+        return view
     }()
 
+    // MARK: - Initializers
     init() {
         super.init(nibName: nil, bundle: nil)
         self.title = "Attendance"
@@ -25,16 +26,23 @@ class AttendanceViewController: BaseViewController {
     }
 }
 
+// MARK: - BaseViewProtocol
 extension AttendanceViewController {
     override func setupViews() {
-        view.addView(testLabel)
+        view.addView(attendanceView)
     }
 
     override func setupConstraints() {
         super.setupConstraints()
         NSLayoutConstraint.activate([
-            testLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
-            testLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            attendanceView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 33),
+            attendanceView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            attendanceView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            attendanceView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
+    }
+
+    override func configureView() {
+        super.configureView()
     }
 }

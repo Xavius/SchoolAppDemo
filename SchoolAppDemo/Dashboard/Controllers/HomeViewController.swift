@@ -25,12 +25,13 @@ enum DashboardAction {
 }
 
 class HomeViewController: BaseViewController, FlowController {
+    // MARK: - Properties
     var isLoggedIn: Bool = false
     let homeView = HomeView()
     var menuItems: [MenuItemData] = []
-
     var completionHandler: ((DashboardAction?) -> ())?
 
+    // MARK: - Public Methods
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
         super.viewWillAppear(animated)
@@ -40,13 +41,20 @@ class HomeViewController: BaseViewController, FlowController {
         navigationController?.isNavigationBarHidden = false
         super.viewWillDisappear(animated)
     }
+
+    // MARK: - Private Methods
+    private func leaveApplication() {
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
+        }
+    }
 }
 
+// MARK: - BaseViewProtocol
 extension HomeViewController {
     override func setupViews() {
         super.setupViews()
         view.addView(homeView)
-        homeView.setupViews()
     }
     override func setupConstraints() {
         super.setupConstraints()
@@ -56,7 +64,6 @@ extension HomeViewController {
             homeView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             homeView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
-        homeView.setupConstraints()
     }
     override func configureView() {
         super.configureView()
@@ -106,16 +113,17 @@ extension HomeViewController {
         ]
         homeView.setupMenuItems(with: self, and: self)
         homeView.addProfileAction(#selector(didTappedProfileButton), with: self)
-        homeView.configureView()
     }
 }
 
+// MARK: - Button Events
 @objc extension HomeViewController {
     func didTappedProfileButton() {
         self.completionHandler?(.showProfile)
     }
 }
 
+// MARK: - UICollectionViewDataSource
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return menuItems.count
@@ -141,6 +149,7 @@ extension HomeViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     private enum LayoutConstant {
         static let spacing: CGFloat = 17
@@ -167,20 +176,5 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         let finalWidth = (width - totalSpacing) / itemsInRow
 
         return finalWidth
-    }
-}
-
-extension HomeViewController {
-    @discardableResult func createAndPushController<VC: BaseViewController>(_ animated: Bool = true) -> VC {
-        let vc = VC()
-        vc.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(vc, animated: animated)
-        return vc
-    }
-
-    func leaveApplication() {
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
-            UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
-        }
     }
 }

@@ -12,29 +12,27 @@ enum ProfileAction {
 }
 
 class ProfileViewController: BaseViewController, FlowController {
-
-    let profileView = ProfileView()
-    var profileViewData: ProfileViewData?
-
-    let doneButton: SANavBarButton = {
+    // MARK: - Properties
+    private let profileView = ProfileView()
+    private var profileViewData: ProfileViewData?
+    private let doneButton: SANavBarButton = {
         let button = SANavBarButton()
         return button
     }()
-
     var completionHandler: ((ProfileAction?) -> ())?
 
+    // MARK: - Public Methods
     func verifyFields() -> Bool {
         // TODO: Implements fields validation
         return true
     }
-
 }
 
+// MARK: - BaseViewProtocol
 extension ProfileViewController {
     override func setupViews() {
         super.setupViews()
         view.addView(profileView)
-        profileView.setupViews()
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: doneButton)
     }
@@ -46,7 +44,6 @@ extension ProfileViewController {
             profileView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             profileView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
-        profileView.setupConstraints()
     }
     override func configureView() {
         super.configureView()
@@ -64,13 +61,13 @@ extension ProfileViewController {
                                           motherName: "Monica Larson",
                                           fatherName: "Bernard Taylor",
                                           permanentAddress: "Karol Bagh, Delhi")
-        profileView.configureView()
         profileView.setup(with: profileViewData)
         profileView.setChoseImageTarget(action: #selector(didTappedPickImageButton), target: self)
         doneButton.setup(name: "Done", action: #selector(didTappedDoneButton), target: self)
     }
 }
 
+// MARK: - Button Events
 @objc extension ProfileViewController {
     func didTappedDoneButton() {
         if verifyFields() {
@@ -100,6 +97,7 @@ extension ProfileViewController {
     }
 }
 
+// MARK: - Image Picker
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     private func pickerController(_ controller: UIImagePickerController, didSelect image: UIImage?) {
         controller.dismiss(animated: true, completion: nil)

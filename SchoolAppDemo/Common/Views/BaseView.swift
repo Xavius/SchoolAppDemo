@@ -14,6 +14,22 @@ protocol BaseViewProtocol {
 }
 
 class BaseView: UIView, BaseViewProtocol {
+    init() {
+        super.init(frame: .zero)
+        setupViews()
+        setupConstraints()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(frame: .zero)
+        setupViews()
+        setupConstraints()
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        configureView()
+    }
 }
 
 extension BaseView {

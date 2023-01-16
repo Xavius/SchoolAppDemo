@@ -24,10 +24,15 @@
 		226CF7F6296F16D2007555F2 /* SASegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226CF7F5296F16D2007555F2 /* SASegmentedControl.swift */; };
 		226CF7FA296F825E007555F2 /* SAPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226CF7F9296F825E007555F2 /* SAPageViewController.swift */; };
 		226CF7FC296F8AB4007555F2 /* HolidayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226CF7FB296F8AB4007555F2 /* HolidayViewController.swift */; };
+		226CF7FE296F9B80007555F2 /* AttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226CF7FD296F9B80007555F2 /* AttendanceView.swift */; };
 		228D75C5295BE03100BBEBFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228D75C4295BE03100BBEBFC /* AppDelegate.swift */; };
 		228D75C7295BE03100BBEBFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228D75C6295BE03100BBEBFC /* SceneDelegate.swift */; };
 		228D75CE295BE03300BBEBFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 228D75CD295BE03300BBEBFC /* Assets.xcassets */; };
 		228D75D1295BE03300BBEBFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 228D75CF295BE03300BBEBFC /* LaunchScreen.storyboard */; };
+		22D0E4452971F2BD007E91D1 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D0E4442971F2BD007E91D1 /* MonthView.swift */; };
+		22D0E4492971FE88007E91D1 /* DayViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D0E4482971FE88007E91D1 /* DayViewCell.swift */; };
+		22D0E44B2974CCB2007E91D1 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D0E44A2974CCB2007E91D1 /* CalendarHelper.swift */; };
+		22D0E44D2974E316007E91D1 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D0E44C2974E316007E91D1 /* CalendarView.swift */; };
 		22E97DE1295DC97C00BD0E15 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E97DE0295DC97C00BD0E15 /* LoginViewController.swift */; };
 		22E97DE3295DD2E700BD0E15 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E97DE2295DD2E700BD0E15 /* RegisterViewController.swift */; };
 		22E97DE5295DD30E00BD0E15 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E97DE4295DD30E00BD0E15 /* ForgotPasswordViewController.swift */; };
@@ -73,12 +78,17 @@
 		226CF7F5296F16D2007555F2 /* SASegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SASegmentedControl.swift; sourceTree = "<group>"; };
 		226CF7F9296F825E007555F2 /* SAPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAPageViewController.swift; sourceTree = "<group>"; };
 		226CF7FB296F8AB4007555F2 /* HolidayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayViewController.swift; sourceTree = "<group>"; };
+		226CF7FD296F9B80007555F2 /* AttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceView.swift; sourceTree = "<group>"; };
 		228D75C1295BE03100BBEBFC /* SchoolAppDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchoolAppDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		228D75C4295BE03100BBEBFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		228D75C6295BE03100BBEBFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		228D75CD295BE03300BBEBFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		228D75D0295BE03300BBEBFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		228D75D2295BE03300BBEBFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22D0E4442971F2BD007E91D1 /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
+		22D0E4482971FE88007E91D1 /* DayViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewCell.swift; sourceTree = "<group>"; };
+		22D0E44A2974CCB2007E91D1 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
+		22D0E44C2974E316007E91D1 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		22E97DE0295DC97C00BD0E15 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		22E97DE2295DD2E700BD0E15 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		22E97DE4295DD30E00BD0E15 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
@@ -167,10 +177,9 @@
 		226CF7F8296F822B007555F2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				22D0E4422971F289007E91D1 /* Controllers */,
+				22D0E4412971F27C007E91D1 /* Views */,
 				226CF7D229673F43007555F2 /* AuthController.swift */,
-				22E97DEC295DD4E200BD0E15 /* BaseView.swift */,
-				22E97E3929621E6C00BD0E15 /* BaseViewController.swift */,
-				226CF7F9296F825E007555F2 /* SAPageViewController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -206,6 +215,34 @@
 				22E97DF7295DED8200BD0E15 /* Resources */,
 			);
 			path = SchoolAppDemo;
+			sourceTree = "<group>";
+		};
+		22D0E4412971F27C007E91D1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				22D0E4432971F2A2007E91D1 /* Calendar */,
+				22E97DEC295DD4E200BD0E15 /* BaseView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		22D0E4422971F289007E91D1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				22E97E3929621E6C00BD0E15 /* BaseViewController.swift */,
+				226CF7F9296F825E007555F2 /* SAPageViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		22D0E4432971F2A2007E91D1 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				22D0E4442971F2BD007E91D1 /* MonthView.swift */,
+				22D0E4482971FE88007E91D1 /* DayViewCell.swift */,
+				22D0E44C2974E316007E91D1 /* CalendarView.swift */,
+			);
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 		22E97DDF295DC95700BD0E15 /* Login */ = {
@@ -251,6 +288,7 @@
 				226CF7D429674E7D007555F2 /* SACollectionView.swift */,
 				226CF7EF296C6990007555F2 /* SAButton.swift */,
 				226CF7F5296F16D2007555F2 /* SASegmentedControl.swift */,
+				22D0E44A2974CCB2007E91D1 /* CalendarHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -291,6 +329,7 @@
 				22E97E372962049500BD0E15 /* HomeMenuEntryCell.swift */,
 				22E97E3B2962300500BD0E15 /* HomeMenuMandatoryEntryCell.swift */,
 				226CF7ED296C5238007555F2 /* SANavBarButton.swift */,
+				226CF7FD296F9B80007555F2 /* AttendanceView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -381,15 +420,19 @@
 			files = (
 				226CF7E4296905EB007555F2 /* AppCoordinator.swift in Sources */,
 				226CF7FA296F825E007555F2 /* SAPageViewController.swift in Sources */,
+				22D0E4492971FE88007E91D1 /* DayViewCell.swift in Sources */,
 				226CF7D529674E7D007555F2 /* SACollectionView.swift in Sources */,
+				22D0E44D2974E316007E91D1 /* CalendarView.swift in Sources */,
 				22E97DE7295DD32E00BD0E15 /* HomeViewController.swift in Sources */,
 				22E97E29295E65FC00BD0E15 /* LoginButton.swift in Sources */,
 				226CF7E829690927007555F2 /* DashboardFactory.swift in Sources */,
+				22D0E44B2974CCB2007E91D1 /* CalendarHelper.swift in Sources */,
 				22E97E342961FF9A00BD0E15 /* ProfileViewController.swift in Sources */,
 				22E97E3A29621E6C00BD0E15 /* BaseViewController.swift in Sources */,
 				226CF7D329673F43007555F2 /* AuthController.swift in Sources */,
 				22E97DEB295DD43300BD0E15 /* LoginView.swift in Sources */,
 				22E97DE1295DC97C00BD0E15 /* LoginViewController.swift in Sources */,
+				22D0E4452971F2BD007E91D1 /* MonthView.swift in Sources */,
 				226CF7E6296906DB007555F2 /* DashboardCoordinator.swift in Sources */,
 				22E97E1F295DFD4D00BD0E15 /* SATextField.swift in Sources */,
 				22E97E2D2960A54100BD0E15 /* HomeView.swift in Sources */,
@@ -420,6 +463,7 @@
 				22E97DED295DD4E200BD0E15 /* BaseView.swift in Sources */,
 				226CF7F0296C6990007555F2 /* SAButton.swift in Sources */,
 				22E97E36296201E200BD0E15 /* ProfileView.swift in Sources */,
+				226CF7FE296F9B80007555F2 /* AttendanceView.swift in Sources */,
 				22E97DF4295DE4C300BD0E15 /* UIColor+ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

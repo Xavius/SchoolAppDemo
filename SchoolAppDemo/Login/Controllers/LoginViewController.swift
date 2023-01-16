@@ -13,24 +13,25 @@ enum LoginAction {
     case forgotPassword
 }
 class LoginViewController: BaseViewController, FlowController {
+    // MARK: - Properties
     let loginView: LoginView = {
         let view = LoginView()
         return view
     }()
-
     var completionHandler: ((LoginAction?) -> ())?
 
+    // MARK: - Public Methods
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
     }
 }
 
+// MARK: - BaseViewProtocol
 extension LoginViewController {
     override func setupViews() {
         super.setupViews()
         view.addView(loginView)
-        loginView.setupViews()
     }
 
     override func setupConstraints() {
@@ -41,18 +42,16 @@ extension LoginViewController {
             loginView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             loginView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
-        loginView.setupConstraints()
     }
 
     override func configureView() {
         super.configureView()
-        loginView.configureView()
         loginView.addSignInAction(#selector(didTappedLoginButton), with: self)
         loginView.addForgotPasswordAction(#selector(didTappedForgotPasswordButton), with: self)
     }
 }
 
-
+// MARK: - Button Events
 @objc extension LoginViewController {
     func didTappedLoginButton() {
         if let authController = authController() {
