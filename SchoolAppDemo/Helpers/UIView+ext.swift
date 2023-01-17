@@ -13,10 +13,10 @@ extension UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
     }
 
-    func embedIntoStack(_ views: [UIView],
-                        spacing: CGFloat = 0,
-                        distribution: UIStackView.Distribution = .fill,
-                        stackAxis: NSLayoutConstraint.Axis = .horizontal) {
+    @discardableResult func embedIntoStack(_ views: [UIView],
+                                           spacing: CGFloat = 0,
+                                           distribution: UIStackView.Distribution = .fill,
+                                           stackAxis: NSLayoutConstraint.Axis = .horizontal) -> UIStackView{
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = stackAxis
@@ -30,6 +30,22 @@ extension UIView {
         } else {
             addView(stackView)
         }
+        return stackView
+    }
+
+    func createSeparator(direction: NSLayoutConstraint.Axis = .horizontal,
+                         color: UIColor = .saSeparator,
+                         thickness: CGFloat = 1) -> UIView {
+        let view = UIView()
+        view.backgroundColor = color
+        switch direction {
+            case .horizontal:
+                view.heightAnchor.constraint(equalToConstant: thickness).isActive = true
+            case .vertical:
+                view.widthAnchor.constraint(equalToConstant: thickness).isActive = true
+            default: break
+        }
+        return view
     }
 
     func setBackgroundImage(with image: UIImage?, moveToBack: Bool = true) {

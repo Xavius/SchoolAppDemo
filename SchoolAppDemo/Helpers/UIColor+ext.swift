@@ -23,6 +23,16 @@ extension UIColor {
         #colorLiteral(red: 0.1529411376, green: 0.1529411376, blue: 0.1529411376, alpha: 1)
     }
 
+    /// - Hex value: #777777
+    static var saCellTitleGrey2: UIColor {
+        #colorLiteral(red: 0.4666666389, green: 0.4666666389, blue: 0.4666666389, alpha: 1)
+    }
+
+    /// - Hex value: #dbdbdb
+    static var saSeparator: UIColor {
+        #colorLiteral(red: 0.8588235974, green: 0.8588235974, blue: 0.8588235974, alpha: 1)
+    }
+
     /// - Hex value: #99989d
     static var saSubTitleGrey: UIColor {
         #colorLiteral(red: 0.5960784314, green: 0.5960784314, blue: 0.6156862745, alpha: 1)
@@ -41,6 +51,11 @@ extension UIColor {
     /// - Hex value: #6688ca
     static var saTextBlue: UIColor {
         #colorLiteral(red: 0.3650192022, green: 0.5330939889, blue: 0.8135755062, alpha: 1)
+    }
+
+    /// - Hex value: #6789ca
+    static var saButtonBlue: UIColor {
+        #colorLiteral(red: 0.368947506, green: 0.537122488, blue: 0.8133618832, alpha: 1)
     }
 
     /// - Hex value: #0bac00

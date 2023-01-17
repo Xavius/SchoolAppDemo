@@ -27,9 +27,4 @@ enum DashboardFactory {
         vc.modalPresentationStyle = .fullScreen
         return vc
     }
-    static func createFeesController() -> FeesViewController {
-        let vc = FeesViewController()
-        vc.modalPresentationStyle = .fullScreen
-        return vc
-    }
 }

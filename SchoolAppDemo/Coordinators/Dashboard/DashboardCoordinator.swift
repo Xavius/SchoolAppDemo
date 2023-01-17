@@ -8,21 +8,26 @@
 import UIKit
 
 class DashboardCoordinator: Coordinator {
+    // MARK: - Coordinator protocol conformance
     var navigationController: UINavigationController
     var flowCompletionHandler: Handler?
-    var needResetStack = true
-
-    weak var authController: AuthController?
-
-    init(navigationController: UINavigationController, authController: AuthController?) {
-        self.navigationController = navigationController
-        self.authController = authController
-    }
-
     func start() {
         showHomeController()
     }
 
+    // MARK: - Properties
+    private var needResetStack = true
+    private weak var authController: AuthController?
+    private let feesCoordinator: FeesCoordinator
+
+    // MARK: - Initializers
+    init(navigationController: UINavigationController, authController: AuthController?) {
+        self.navigationController = navigationController
+        self.authController = authController
+        self.feesCoordinator = FeesCoordinator(navigationController: self.navigationController)
+    }
+
+    // MARK: - Private Methods
     private func showHomeController() {
         let homeVC = DashboardFactory.createHomeController()
         homeVC.completionHandler = { [weak self] action in
@@ -65,8 +70,7 @@ class DashboardCoordinator: Coordinator {
     }
 
     private func showFees() {
-        let feesVC = DashboardFactory.createFeesController()
-        showViewController(feesVC, with: "Fees Due")
+        feesCoordinator.start()
     }
 
     private func showViewController(_ viewController: UIViewController, with title: String? = nil) {

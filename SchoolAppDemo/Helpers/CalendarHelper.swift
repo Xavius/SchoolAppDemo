@@ -104,4 +104,11 @@ class CalendarHelper {
         dateComponents.day = day
         return calendar.date(from: dateComponents)!
     }
+
+    func makeMonth(year: Int, month: Int) -> Date {
+        var dateComponents = DateComponents()
+        dateComponents.year = year
+        dateComponents.month = month
+        return calendar.date(from: dateComponents)!
+    }
 }

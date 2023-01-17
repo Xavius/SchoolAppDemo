@@ -95,12 +95,14 @@ extension HolidayView: CalendarViewDelegate {
     }
 }
 
+// MARK: - UITableViewDelegate
 extension HolidayView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 92
     }
 }
 
+// MARK: - UITableViewDataSource
 extension HolidayView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return activeMonthData.count
@@ -113,5 +115,4 @@ extension HolidayView: UITableViewDataSource {
         cell.setup(withTitle: info.title, andDate: info.date)
         return cell
     }
-
 }
